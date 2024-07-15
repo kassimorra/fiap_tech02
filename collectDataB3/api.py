@@ -4,7 +4,7 @@ import boto3
 from io import BytesIO
 import zipfile
 import pandas as pd
-from botocore.exceptions import NoCredentialsError
+#from botocore.exceptions import NoCredentialsError
 
 access_key = ''
 secret_key = ''
