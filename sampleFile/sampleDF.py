@@ -16,6 +16,10 @@ class SampleFile:
 
         try:
             df_input = pd.read_parquet(input_file)
+
+            if sample_size > len(df_input):
+                raise ValueError("Sample size exceeds the number of rows in the input file")\
+                
             df_sample = df_input.sample(n=sample_size, random_state=1)
             df_sample.to_parquet(output_file, engine='fastparquet')
             print(f"Sample data has been saved to {output_file}")
