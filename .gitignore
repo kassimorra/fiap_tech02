@@ -1,5 +1,13 @@
+#local request lambda
+awsLambda/python
+
+#awsCredentials
+collectDataB3/awsCredentials/credentials.py
+
 #Full parquet file
+dfB3_sample.parquet
 dfB3.parquet
+collectDataB3/files/*.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
