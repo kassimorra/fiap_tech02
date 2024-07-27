@@ -21,7 +21,13 @@ class SampleFile:
                 raise ValueError("Sample size exceeds the number of rows in the input file")\
                 
             df_sample = df_input.sample(n=sample_size, random_state=1)
-            df_sample.to_parquet(output_file, engine='fastparquet')
+
+            temp_csv_file = "temp_sample.csv"
+            df_sample.to_csv(temp_csv_file, sep=';', index=False)
+                
+            df_sample_with_delimiter = pd.read_csv(temp_csv_file, sep=';')
+            df_sample_with_delimiter.to_parquet(output_file, engine='fastparquet', index=False)
+
             print(f"Sample data has been saved to {output_file}")
 
         except Exception as e:
